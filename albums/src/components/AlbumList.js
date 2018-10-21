@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import axios from 'axios';
+import AlbumDetail from './AlbumDetail';
 
 
 export default class AlbumList extends Component {
@@ -12,11 +13,17 @@ export default class AlbumList extends Component {
             .then(response => this.setState({albums: response.data}));
     }
 
+    renderAlbums() {
+        return this.state.albums.map((album) =>  {
+            return (
+                <AlbumDetail key={album.title} album={album} />
+            );
+        });
+    }
+
     render() {
         return (
-            <View>
-                <Text>Minha lista por aqui</Text>
-            </View>
+            <View>{this.renderAlbums()}</View>
         );
     }
 
