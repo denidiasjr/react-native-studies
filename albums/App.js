@@ -16,7 +16,7 @@ export default class App extends Component<Props> {
     return (
       <View>
         <Header title="Título" />
-        <AlbumList></AlbumList>
+        <AlbumList />
       </View>
     );
   }
