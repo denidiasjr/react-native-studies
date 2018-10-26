@@ -14,8 +14,8 @@ import AlbumList from './src/components/AlbumList';
 export default class App extends Component<Props> {
   render() {
     return (
-      <View>
-        <Header title="Título" />
+      <View style={{flex: 1}}>
+        <Header title="Discos" />
         <AlbumList />
       </View>
     );
