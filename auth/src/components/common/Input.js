@@ -1,24 +1,33 @@
 import React from 'react';
 import { View, Text, TextInput } from 'react-native';
 
-const Input = ({ value, onChangeText, placeholder }) => {
+const Input = ({ value, onChangeText, label, placeholder }) => {
     
     return (
-        <View>
-            <Text>{placeholder}</Text>
+        <View styles={styles.containerStyle}>
+            <Text style={styles.labelStyle}>{label}</Text>
             <TextInput
+                placeholder={placeholder}
                 value={value}
                 onChangeText={onChangeText}
-                style={{height: 20, width: 100}}
+                style={styles.inputStyle}
             />
         </View>
     );
 }
 
 const styles = {
-    containerStyle: {},
-    labelStyle: {},
-    inputStyle: {}
+    containerStyle: {
+
+    },
+    labelStyle: {
+        paddingRight: 10
+    },
+    inputStyle: {
+        height: 50,
+        alignSelf: 'flex-start',
+        fontSize: 18
+    }
 }
 
-export default Input;
+export { Input };

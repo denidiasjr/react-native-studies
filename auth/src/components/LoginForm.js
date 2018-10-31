@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, TextInput} from 'react-native';
-import { Card, CardSection, Button } from './common';
+import { Card, CardSection, Button, Input } from './common';
 
 class LoginForm extends Component {
 
@@ -12,6 +11,8 @@ class LoginForm extends Component {
             <Card>
                 <CardSection>
                     <Input 
+                        label={'Email'}
+                        placeholder={'user@email.com'}
                         value={this.state.email}
                         onChangeText={email => this.setState({email})}
                     />
