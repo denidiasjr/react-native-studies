@@ -1,0 +1,1 @@
+export default SelectionReducer = () => 1;
