@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { View, FlatList } from 'react-native';
-import { Button } from './common/Button';
 import { connect } from 'react-redux';
+import ListItem from './ListItem';
 
 class LibraryList extends Component {
 
     renderItem(library) {
-
+        return <ListItem library={library.item} />
     }
 
     render() {
@@ -14,11 +14,12 @@ class LibraryList extends Component {
         let {
             libraries
         } = this.props;
-        
+
         return (
             <FlatList 
-                data={this.props.libraries}
+                data={libraries}
                 renderItem={this.renderItem}
+                keyExtractor={(library) => library.id}
             />
         );
     }
@@ -29,10 +30,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(LibraryList);
-
-const styles = {
-    containerStyle: {
-        flex: 1,
-        marginTop: 10
-    }
-}
