@@ -16,10 +16,11 @@ class LibraryList extends Component {
         } = this.props;
 
         return (
+            >
             <FlatList 
                 data={libraries}
                 renderItem={this.renderItem}
-                keyExtractor={(library) => library.id}
+                keyExtractor={(library) => ""+library.id}
             />
         );
     }
