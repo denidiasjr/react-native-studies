@@ -16,7 +16,7 @@ class LibraryList extends Component {
         } = this.props;
 
         return (
-            >
+            
             <FlatList 
                 data={libraries}
                 renderItem={this.renderItem}
