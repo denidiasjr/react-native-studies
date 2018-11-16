@@ -13,9 +13,13 @@ class ListItem extends Component {
             expanded
         } = this.props;
 
+        let {
+            descriptionStyle
+        } = styles;
+
         if (expanded) {
             return (
-                <Text>{library.description}</Text>
+                <Text style={descriptionStyle}>{library.description}</Text>
             );
         }
     }
@@ -25,7 +29,6 @@ class ListItem extends Component {
         let {
             library,
             selectLibrary,
-            expanded
         } = this.props;
 
         let {
@@ -51,6 +54,14 @@ const styles = {
     titleStyle: {
         fontSize: 18,
         paddingLeft: 15
+    },
+    descriptionStyle: {
+        fontSize: 16,
+        paddingLeft: 10,
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingRight: 10,
+        textAlign: 'justify'
     }
 }
 
