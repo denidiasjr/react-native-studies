@@ -8,18 +8,26 @@ import * as actions from '../actions';
 
 class Point extends Component {
 
-    onPress() {
-        console.log('It\'s pressed!');
-    }
-
     render() {
 
-        console.log(this.props);
+        let {
+            pointStyle,
+            pressedStyle,
+            unpressedStyle
+        } = styles;
 
+        let {
+            isPressed,
+            id,
+            pointPressed
+        } = this.props;
+
+        let currentStyle = isPressed ? pressedStyle : unpressedStyle;
+        
         return (
             <TouchableOpacity
-                onPress={this.onPress.bind(this)}
-                style={styles.pointStyle}
+                onPress={() => pointPressed(id)}
+                style={[pointStyle, currentStyle]}
             >
             </TouchableOpacity>
         );
@@ -28,17 +36,18 @@ class Point extends Component {
 
 const styles = {
     pointStyle: {
+        flex: 1,
         marginTop: 10,
         marginLeft: 10,
         marginRight: 10,
         marginBottom: 10,
-        flex: 1
+        borderRadius: 5
     }, 
     pressedStyle: {
         backgroundColor: 'steelblue',
     },
     unpressedStyle: {
-        backgroundColor: 'red',
+        backgroundColor: 'skyblue',
     }
 }
 
