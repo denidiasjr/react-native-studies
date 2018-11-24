@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
 import { View } from 'react-native';
 import Point from './Point';
 
@@ -10,16 +8,16 @@ class Braille extends Component {
         return (
             <View style={styles.brailleStyle}>
                 <View style={styles.columnStyle}>
-                    <Point id="p1" />
-                    <Point id="p2" />
+                    <Point number="1" />
+                    <Point number="2" />
                 </View>
                 <View style={styles.columnStyle}>
-                    <Point id="p3" />
-                    <Point id="p4" />
+                    <Point number="3" />
+                    <Point number="4" />
                 </View>
                 <View style={styles.columnStyle}>
-                    <Point id="p5" />
-                    <Point id="p6" />
+                    <Point number="5" />
+                    <Point number="6" />
                 </View>
             </View>
         );

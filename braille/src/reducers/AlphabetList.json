@@ -1,0 +1,42 @@
+[
+    {
+        "letter": "a",
+        "combination": "1"
+    },
+    {
+        "letter": "b",
+        "combination": "12"
+    },
+    {
+        "letter": "c",
+        "combination": "14"
+    },
+    {
+        "letter": "d",
+        "combination": "145"
+    },
+    {
+        "letter": "e",
+        "combination": "15"
+    },
+    {
+        "letter": "f",
+        "combination": "124"
+    },
+    {
+        "letter": "g",
+        "combination": "124"
+    },
+    {
+        "letter": "h",
+        "combination": "125"
+    },
+    {
+        "letter": "i",
+        "combination": "24"
+    },
+    {
+        "letter": "j",
+        "combination": "245"
+    }
+]

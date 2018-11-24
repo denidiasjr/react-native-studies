@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-    View,
     TouchableOpacity
 } from 'react-native';
-import * as actions from '../actions';
+import { pointPressed } from '../actions';
 
 class Point extends Component {
 
@@ -18,7 +17,7 @@ class Point extends Component {
 
         let {
             isPressed,
-            id,
+            number,
             pointPressed
         } = this.props;
 
@@ -26,7 +25,7 @@ class Point extends Component {
         
         return (
             <TouchableOpacity
-                onPress={() => pointPressed(id)}
+                onPress={() => pointPressed(number)}
                 style={[pointStyle, currentStyle]}
             >
             </TouchableOpacity>
@@ -54,9 +53,9 @@ const styles = {
 const mapStateToProps = (state, ownProps) => {
 
     return {
-        isPressed: !!state.braille[ownProps.id]        
+        isPressed: !!state.braille[ownProps.number]        
     }
 }
 
-export default connect(mapStateToProps, actions)(Point);
+export default connect(mapStateToProps, {pointPressed})(Point);
 

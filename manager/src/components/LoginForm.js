@@ -18,9 +18,18 @@ class LoginForm extends Component {
         this.props.passwordChanged(text);
     }
 
-    render() {
+    onPress() {
 
-        console.log(this.props);
+        let {
+            email,
+            password,
+            loginUser
+        }
+
+        loginUser({email, password})
+    }
+
+    render() {
 
         return (
             <Card>
@@ -42,7 +51,9 @@ class LoginForm extends Component {
                     />
                 </CardSection>
                 <CardSection>
-                    <Button>
+                    <Button
+                        onPress={this.onPress.bind(this)}
+                    >
                         Entrar
                     </Button>
                 </CardSection>

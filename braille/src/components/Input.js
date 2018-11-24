@@ -4,15 +4,25 @@ import {
     View,
     Text
 } from 'react-native';
-import * as actions from '../actions';
+import {insertLetter} from '../actions';
 
 class Input extends Component {
 
     render() {
 
+        let {
+            text
+        } = this.props;
+
+        let noTextStyle = {
+            color: text ? '#000' : '#acacac'
+        }
+
+        text = text ? text : 'Seu texto aqui';
+
         return (
             <View style={styles.boxStyle}>
-                <Text style={styles.textStyle}>Abracadabra!</Text>
+                <Text style={[styles.textStyle, noTextStyle]}>{text}</Text>
             </View>
         );
     }
@@ -27,10 +37,16 @@ const styles = {
         borderWidth: 0.5
     },
     textStyle: {
-        color: '#000',
         marginLeft: 10,
         fontSize: 18
     }
 }
 
-export default Input;
+const mapStateToProps = (state, ownProps) => {
+
+    return {
+        text: state.text
+    }
+}
+
+export default connect(mapStateToProps, { insertLetter })(Input);

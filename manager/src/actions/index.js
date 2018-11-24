@@ -2,7 +2,8 @@ import firebase from 'firebase';
 
 import {
     EMAIL_CHANGED,
-    PASSWORD_CHANGED
+    PASSWORD_CHANGED,
+    LOGIN_USER_ACCESS
 } from './types';
 
 export const emailChanged = (email) => {
@@ -20,6 +21,9 @@ export const passwordChanged = (password) => {
 }
 
 export const loginUser = ({ email, password }) => {
-    firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((user) => console.log(user));
+
+    return (dispatch) => {
+        firebase.auth().signInWithEmailAndPassword(email, password)
+            .then((user) => dispatch({ type: LOGIN_USER_ACCESS, payload: user}));
+    }
 }
