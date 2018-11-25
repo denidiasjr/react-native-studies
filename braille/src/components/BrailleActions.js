@@ -10,10 +10,6 @@ import Button from './Button';
 
 class BrailleActions extends Component {
 
-    onPressBackspace() {
-        
-    }
-
     onPressInsert() {
 
         let {
@@ -28,7 +24,7 @@ class BrailleActions extends Component {
 
         return (
             <View style={styles.boxStyle}>
-                <Button color="#e06868" onPress={this.onPressBackspace.bind(this)}>Backspace</Button>
+                <Button color="#e06868" onPress={() => backspaceLetter()}>Backspace</Button>
                 <Button color="#56b353" onPress={this.onPressInsert.bind(this)}>Insert</Button>
             </View>
         );
@@ -42,19 +38,22 @@ const styles = {
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 
-    console.log(state);
-
+    // Get state variables
     const alphabet = state.alphabet;
     const braille = state.braille;
+
+    // Initialize current combination and letter
     let currentCombination = '';
     let currentLetter = '';
 
+    // Get current combination
     for (let i = 0; i < braille.length; i++) {
         currentCombination += braille[i] ? i : '';
     }
 
+    // Get letter from combination
     if (currentCombination) {
 
         for (let i = 0; i < alphabet.length; i++) {
@@ -65,7 +64,6 @@ const mapStateToProps = (state, ownProps) => {
             }
         }
     }
-
     
     return { 
         letter: currentLetter

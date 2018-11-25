@@ -11,10 +11,9 @@ export const insertLetter = (letter) => {
     }
 }
 
-export const backspaceLetter = (letter) => {
+export const backspaceLetter = () => {
     return {
-        type: BACKSPACE_LETTER,
-        payload: letter
+        type: BACKSPACE_LETTER
     }
 }
 export const pointPressed = (point) => {
