@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-    TouchableOpacity
-} from 'react-native';
 import { pointPressed } from '../actions';
+
+import { TouchableOpacity } from 'react-native';
 
 class Point extends Component {
 

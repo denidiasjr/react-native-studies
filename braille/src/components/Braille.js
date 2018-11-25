@@ -9,14 +9,14 @@ class Braille extends Component {
             <View style={styles.brailleStyle}>
                 <View style={styles.columnStyle}>
                     <Point number="1" />
-                    <Point number="2" />
-                </View>
-                <View style={styles.columnStyle}>
-                    <Point number="3" />
                     <Point number="4" />
                 </View>
                 <View style={styles.columnStyle}>
+                    <Point number="2" />
                     <Point number="5" />
+                </View>
+                <View style={styles.columnStyle}>
+                    <Point number="3" />
                     <Point number="6" />
                 </View>
             </View>
