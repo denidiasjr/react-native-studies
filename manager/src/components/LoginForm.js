@@ -10,7 +10,8 @@ import {
     Card,
     CardSection,
     Input,
-    Button
+    Button,
+    Spinner
 } from './common';
 
 class LoginForm extends Component {
@@ -45,6 +46,23 @@ class LoginForm extends Component {
         }
     }
 
+    renderButton() {
+
+        if (this.props.loading) {
+            return (
+                <Spinner size="large"/>
+            );
+        }
+
+        return (
+            <Button
+                onPress={this.onPress.bind(this)}
+            >
+                Entrar
+            </Button>
+        );
+    }
+
     render() {
 
         return (
@@ -70,11 +88,7 @@ class LoginForm extends Component {
                 {this.renderError()}
 
                 <CardSection>
-                    <Button
-                        onPress={this.onPress.bind(this)}
-                    >
-                        Entrar
-                    </Button>
+                    {this.renderButton()}
                 </CardSection>
             </Card>
         );
@@ -99,7 +113,8 @@ const mapStateToProps = state => {
     return {
         email: state.auth.email,
         password: state.auth.password,
-        error: state.auth.error
+        error: state.auth.error,
+        loading: state.auth.loading
     };
 } 
 
