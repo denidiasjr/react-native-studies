@@ -51,11 +51,10 @@ const loginUserSuccess = (dispatch, user) => {
         payload: user
     });
 
-    Actions.employeesList();
+    Actions.main();
 }
 
 const loginUserFail = (dispatch) => {
-    console.log('loginUserFail');
     dispatch({
         type: LOGIN_USER_FAIL
     });
