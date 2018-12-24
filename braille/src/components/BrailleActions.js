@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
     insertLetter,
-    backspaceLetter
+    backspaceLetter,
+    clearBraille
 } from '../actions';
 
 import { View } from 'react-native';
@@ -14,13 +15,19 @@ class BrailleActions extends Component {
 
         let {
             letter,
-            insertLetter
+            insertLetter,
+            clearBraille
         } = this.props;
 
         insertLetter(letter);
+        clearBraille();
     }
     
     render() {
+
+        let {
+            backspaceLetter
+        } = this.props;
 
         return (
             <View style={styles.boxStyle}>
@@ -70,4 +77,10 @@ const mapStateToProps = (state) => {
     };
 }
 
-export default connect(mapStateToProps, { insertLetter, backspaceLetter })(BrailleActions);
+const mapDispatchToProps = {
+    insertLetter,
+    backspaceLetter,
+    clearBraille
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BrailleActions);
