@@ -19,10 +19,11 @@ class EmployeeCreate extends Component {
         const {
             name,
             phone,
-            shift
+            shift,
+            employeeCreate
         } = this.props;
 
-        this.props.employeeCreate({ name, phone, shift });
+        employeeCreate({ name, phone, shift: shift || 'Monday' });
     }
 
     render() {
