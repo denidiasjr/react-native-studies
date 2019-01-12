@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { employeesFetch } from '../actions';
 import {
+    ListView,
     View,
     Text
 } from 'react-native';
@@ -9,22 +10,52 @@ import {
 class EmployeeList extends Component {
 
     componentWillMount() {
-        this.props.employeesFetch();
+
+        let {
+            employeesFetch,
+            employees
+        } = this.props;
+
+        employeesFetch();
+        createDataSource({ employees });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        createDataSource(nextProps.employees);
+
+    }
+
+    createDataSource({ employees }) {
+     
+        const dataSourceValidation = new ListView.DataSource({
+            rowHasChanged: (r1, r2) => r1 !== r2
+        });
+
+        this.dataSource = dataSourceValidation.cloneWithRows(employees);
     }
 
     render() {
+
         return (
             <View>
-                <Text>Deni Junior - @denidiasjr</Text>
-                <Text>Deni Junior - @denidiasjr</Text>
-                <Text>Deni Junior - @denidiasjr</Text>
-                <Text>Deni Junior - @denidiasjr</Text>
-                <Text>Deni Junior - @denidiasjr</Text>
-                <Text>Deni Junior - @denidiasjr</Text>
-                <Text>Deni Junior - @denidiasjr</Text>
+                <Text>Employees List</Text>
             </View>
         );
     }
 }
 
-export default connect(null, { employeesFetch })(EmployeeList);
+const styles = {
+    list: {
+        flex: 1,
+        height: 50
+    }
+}
+
+const mapStateToProps = state => {
+
+    return {
+        employees: state.employees
+    }
+}
+
+export default connect(mapStateToProps, { employeesFetch })(EmployeeList);
