@@ -8,6 +8,7 @@ import {
 import LoginForm from './components/LoginForm';
 import EmployeeList from './components/EmployeeList';
 import EmployeeCreate from './components/EmployeeCreate';
+import EmployeeEdit from './components/EmployeeEdit';
 
 const RouterComponent = () => {
 
@@ -29,6 +30,11 @@ const RouterComponent = () => {
                         key="employeeCreate"                
                         title="Create Employee"
                         component={EmployeeCreate}
+                    />
+                    <Scene
+                        key="employeeEdit"                
+                        title="Edit Employee"
+                        component={EmployeeEdit}
                     />
                 </Scene>
             </Scene>
