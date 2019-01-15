@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { employeeUpdate, employeeCreate } from '../actions';
+import { employeeUpdate, employeeCreate, employeeReset } from '../actions';
 import {
     Card,
     CardSection,
@@ -9,6 +9,10 @@ import {
 import EmployeeForm from './EmployeeForm';
 
 class EmployeeCreate extends Component {
+
+    componentWillMount() {
+        this.props.employeeReset();
+    }
 
     onButtonPress() {
 
@@ -50,4 +54,6 @@ const mapStateToProps = (state) => {
     };
 }
 
-export default connect(mapStateToProps, { employeeUpdate, employeeCreate })(EmployeeCreate);
+export default connect(mapStateToProps, { 
+    employeeUpdate, employeeCreate, employeeReset 
+})(EmployeeCreate);
