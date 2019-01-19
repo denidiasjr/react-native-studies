@@ -13,11 +13,50 @@ import {
 
 const Confirm = (props) => {
 
+    let {
+        children,
+        visible,
+        onAccept,
+        onDecline
+    } = props;
+
     return (
-        <Modal>
+        <Modal
+            visible={visible}
+            transparent
+            animationType="slide"
+            onRequestClose={() => {}}
+        >
+            <View style={styles.container}>
+                <CardSection style={styles.cardSection}>
+                    <Text style={styles.text}>{children}</Text>
+                </CardSection>
+                <CardSection style={styles.cardSection}>
+                    <Button onPress={onAccept}>Yes</Button>
+                    <Button onPress={onDecline}>No</Button>
+                </CardSection>
+            </View>
         </Modal>
     );
     
 };
+
+const styles = {
+    cardSection: {
+        justifyContent: 'center'
+    },
+    text: {
+        flex: 1,
+        fontSize: 18,
+        textAlign: 'center',
+        lineHeight: 40
+    },
+    container: {
+        backgroundColor: 'rgba(0, 0, 0, 0.75)',
+        position: 'relative',
+        flex: 1,
+        justifyContent: 'center'
+    }
+}
 
 export { Confirm };
