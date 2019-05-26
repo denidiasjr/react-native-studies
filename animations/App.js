@@ -18,31 +18,31 @@ export default class App extends Component {
 
   renderCard = (item) => {
     return (
-      <Card
-        key={item.id}
-        title={item.text}
-        image={{ uri: item.uri }}
-      >
+        <Card
+            key={item.id}
+            title={item.text}
+            image={{ uri: item.uri }}
+        >
         <Text style={{ marginBottom: 10 }}>
-          Vamos ver se esse card é tudo isso mesmo!
+            Vamos ver se esse card é tudo isso mesmo!
         </Text>
         <Button 
-          icon={{ name: 'code', color: 'white' }}
-          backgroundColor={"#03A9F4"}
-          title={"View now"}
+            icon={{ name: 'code', color: 'white' }}
+            backgroundColor={"#03A9F4"}
+            title={"View now"}
         />
-      </Card>  
+        </Card>  
     );
   }
 
   render() {
     return (
-      <View style={styles.container}>
+        <View style={styles.container}>
         <Deck 
-          data={DATA}
-          renderCard={this.renderCard}
+            data={DATA}
+            renderCard={this.renderCard}
         />
-      </View>
+        </View>
     );
   }
 }
