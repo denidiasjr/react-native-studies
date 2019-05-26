@@ -1,6 +1,7 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import Ball from './src/Ball';
+import React, { Component } from 'react';
+import { StyleSheet, View, Text } from 'react-native';
+import { Card, Button } from 'react-native-elements';
+import Deck from './src/Deck';
 
 const DATA = [
   { id: 1, text: 'Card #1', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-04.jpg' },
@@ -13,11 +14,34 @@ const DATA = [
   { id: 8, text: 'Card #8', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-01.jpg' },
 ];
 
-export default class App extends React.Component {
+export default class App extends Component {
+
+  renderCard = (item) => {
+    return (
+      <Card
+        key={item.id}
+        title={item.text}
+        image={{ uri: item.uri }}
+      >
+        <Text style={{ marginBottom: 10 }}>
+          Vamos ver se esse card é tudo isso mesmo!
+        </Text>
+        <Button 
+          icon={{ name: 'code', color: 'white' }}
+          backgroundColor={"#03A9F4"}
+          title={"View now"}
+        />
+      </Card>  
+    );
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Ball />
+        <Deck 
+          data={DATA}
+          renderCard={this.renderCard}
+        />
       </View>
     );
   }
